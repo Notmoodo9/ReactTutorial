@@ -11,27 +11,29 @@ Tutorial to make a react application
 # Set up babel (Thing used for building)
 	Install all necessary packages run 
  	npm install @babel/core @babel/preset-env @babel/preset-react babel-loader
+  
 	Create a file called .babelrc in the root of the dir past in 
 	{
   	   "presets": ["@babel/preset-env", "@babel/preset-react"]
 	}
 
 # Set up webpack
-	Install all necessary packages run ***`npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin`***
+	Install all necessary packages run 
+ 	npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin
 	Create a file called webpack.config.js in the root
 	```js
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require("path"); 
+    const HtmlWebpackPlugin = require('html-webpack-plugin');
+    const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+    const path = require("path"); 
 
-const name = "Project_Name";
+    const name = "Project_Name";
 
-module.exports = {
+    module.exports = {
     output: {
-        path: path.resolve(__dirname, 'dist'), 
-        filename: `${name}.js`,
-      },
-  module: {
+    path: path.resolve(__dirname, 'dist'), 
+    filename: `${name}.js`,
+    },
+    module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -45,8 +47,8 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
-  },
-  plugins: [
+    },
+    plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: `${name}.html` // Custom HTML filename
@@ -54,13 +56,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: `${name}.css` // Custom CSS filename
     })
-  ],
-  resolve: {
-    extensions: ['.js', '.jsx']
-  }
-};
-
-	```
+    ],
+    resolve: {
+      extensions: ['.js', '.jsx']
+    }
+    };
 	Set the name changing the name const (Good for output makes it better) 
 
 # Add Scripts that give your app functionality 
