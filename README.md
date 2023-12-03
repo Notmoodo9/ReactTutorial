@@ -18,10 +18,11 @@ Tutorial to make a react application
 	}
 
 # Set up webpack
-	Install all necessary packages run 
- 	npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin
-	Create a file called webpack.config.js in the root
-	
+    Install all necessary packages run 
+    npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin
+    Create a file called webpack.config.js in the root
+
+   # Code
     const HtmlWebpackPlugin = require('html-webpack-plugin');
     const MiniCssExtractPlugin = require('mini-css-extract-plugin');
     const path = require("path"); 
