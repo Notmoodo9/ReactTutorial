@@ -9,13 +9,12 @@ Tutorial to make a react application
 	npm install react react-dom
 
 # Set up babel (Thing used for building)
-	Install all necessary packages run `npm install @babel/core @babel/preset-env @babel/preset-react babel-loader`
+	Install all necessary packages run 
+ 	npm install @babel/core @babel/preset-env @babel/preset-react babel-loader
 	Create a file called .babelrc in the root of the dir past in 
-	```json
 	{
   	   "presets": ["@babel/preset-env", "@babel/preset-react"]
 	}
-	```
 
 # Set up webpack
 	Install all necessary packages run ***`npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin`***
