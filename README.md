@@ -109,11 +109,13 @@ Tutorial to make a react application
 	just put the css you want in here
 	
 # to test 
-	run: npm run start
+	to test the code run: 
+	npm run start
 	It will launch a dev test and if you want to have it update just do ctrl S on the file and it will auto update
 	
 # to build
-	run: npm run build
+	to build the code run: 
+	npm run build
 	It will output to a a folder called dist 
 	With that output you need to set up a node.js server 
 
