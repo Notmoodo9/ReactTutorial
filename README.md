@@ -21,7 +21,7 @@ Tutorial to make a react application
 	Install all necessary packages run 
  	npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin
 	Create a file called webpack.config.js in the root
-	```js
+	
     const HtmlWebpackPlugin = require('html-webpack-plugin');
     const MiniCssExtractPlugin = require('mini-css-extract-plugin');
     const path = require("path"); 
@@ -29,39 +29,39 @@ Tutorial to make a react application
     const name = "Project_Name";
 
     module.exports = {
-    output: {
-    path: path.resolve(__dirname, 'dist'), 
-    filename: `${name}.js`,
-    },
-    module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+      output: {
+        path: path.resolve(__dirname, 'dist'), 
+        filename: `${name}.js`,
       },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      module: {
+        rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader'
+          }
+        },
+        {
+          test: /\.css$/,
+          use: [MiniCssExtractPlugin.loader, 'css-loader']
+        }]
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: './src/index.html',
+          filename: `${name}.html` // Custom HTML filename
+        }),
+        new MiniCssExtractPlugin({
+          filename: `${name}.css` // Custom CSS filename
+        })
+      ],
+      resolve: {
+        extensions: ['.js', '.jsx']
       }
-    ]
-    },
-    plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: `${name}.html` // Custom HTML filename
-    }),
-    new MiniCssExtractPlugin({
-      filename: `${name}.css` // Custom CSS filename
-    })
-    ],
-    resolve: {
-      extensions: ['.js', '.jsx']
-    }
     };
-	Set the name changing the name const (Good for output makes it better) 
+    
+    Set the name changing the name const (Good for output makes it better) 
 
 # Add Scripts that give your app functionality 
 	Find the package.json file and in the scripts area add
