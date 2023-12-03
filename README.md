@@ -21,6 +21,7 @@ Tutorial to make a react application
     Install all necessary packages run 
     npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin
     Create a file called webpack.config.js in the root
+    Set the name changing the name const (Good for output makes it better) 
 
    # Code
     const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -61,15 +62,12 @@ Tutorial to make a react application
         extensions: ['.js', '.jsx']
       }
     };
-    
-    Set the name changing the name const (Good for output makes it better) 
 
 # Add Scripts that give your app functionality 
 	Find the package.json file and in the scripts area add
-	```json
-	  "start": "webpack-dev-server --mode development --open",
-  	  "build": "webpack --mode production"
-	```	
+ 
+	"start": "webpack-dev-server --mode development --open",
+  	"build": "webpack --mode production"	
 
 # Set up for actually making things
 	Create a new folder called "src"
@@ -78,8 +76,7 @@ Tutorial to make a react application
 	index.js
 	style.css
 	
-	In index.js
-	```js
+## In index.js
 	import React from 'react';
 	import ReactDOM from 'react-dom';
 
@@ -91,11 +88,10 @@ Tutorial to make a react application
 
 	// Render the App component into a div with the id of 'root'
 	ReactDOM.render(<App />, document.getElementById('root'));
-	```
+ 
 	^ This is a simple react project that will render a little html 
-
-	In index.html | This will be very basic there is a lot of other things you should add 
-	```html
+ 
+## In index.html
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -107,7 +103,6 @@ Tutorial to make a react application
   	  <div id="root"></div>
 	</body>
 	</html>
-	```
 	^ Simple set up more is needed
 
 	Style.css:
