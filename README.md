@@ -5,7 +5,8 @@ Tutorial to make a react application
 	Run npm init -y in the folder 
 
 # Install React and ReactDOM
-	Run ***`npm install react react-dom`***
+	In the directory run 
+	npm install react react-dom
 
 # Set up babel (Thing used for building)
 	Install all necessary packages run `npm install @babel/core @babel/preset-env @babel/preset-react babel-loader`
