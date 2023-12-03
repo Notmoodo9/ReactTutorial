@@ -62,7 +62,7 @@ Tutorial to make a react application
       plugins: [
         new HtmlWebpackPlugin({
           template: './src/index.html',
-          filename: `${name}.html` // Custom HTML filename
+          filename: 'index.html'
         }),
         new MiniCssExtractPlugin({
           filename: `${name}.css` // Custom CSS filename
