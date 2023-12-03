@@ -35,6 +35,16 @@ Tutorial to make a react application
         path: path.resolve(__dirname, 'dist'), 
         filename: `${name}.js`,
       },
+      devServer: {
+    	static: {
+          directory: path.join(__dirname, 'public'), // Where static files are located
+        },
+        compress: true,
+        port: 3000, // Or any port of your choice
+        open: true,
+        hot: true, // Enable Hot Module Replacement
+        historyApiFallback: true, // For single-page applications
+      },
       module: {
         rules: [
         {
@@ -75,6 +85,8 @@ Tutorial to make a react application
 	index.html
 	index.js
 	style.css
+
+  	Create a new folder called "public"
 	
 ## In index.js
 	import React from 'react';
