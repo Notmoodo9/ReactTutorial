@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Application Tutorial</title>
+    <style>
+        .code-block {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 10px 70px 10px 10px;
+            margin: 10px 0;
+            position: relative;
+            font-family: monospace;
+            white-space: nowrap;
+            overflow: auto;
+        }
+        .copy-button:target {
+            background-color: #ff0000;
+        }
+        .copy-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            background-color: #e7e7e7;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            white-space: pre-wrap;
+        }
+        ol, p {
+            margin-bottom: 45px;
+        }
+        li {
+            margin-bottom: 40px;
+        }
+        .break {
+            margin-bottom: 2225px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tutorial to Make a React Application</h1>
+
+    <!-- Section: Create a new project -->
+    <h2>Create a New Project</h2>
+    <ol>
+        <li>Create a new Folder</li>
+        <li>Run <span class="code-block">npm init -y<span class="copy-button" onclick="copyText('npm init -y')">Copy</span></span> in the folder</li>
+    </ol>
+
+    <!-- Section: Install React and ReactDOM -->
+    <h2>Install React and ReactDOM</h2>
+    <p>In the directory run <span class="code-block">npm install react react-dom<span class="copy-button" onclick="copyText('npm install react react-dom')">Copy</span></span></p>
+
+    <!-- Section: Set up babel -->
+    <h2>Set up Babel</h2>
+    <p>Install all necessary packages: <span class="code-block">npm install @babel/core @babel/preset-env @babel/preset-react babel-loader<span class="copy-button" onclick='copyText("npm install @babel/core @babel/preset-env @babel/preset-react babel-loader")'>Copy</span></span></p>
+    <p>Create a file called .babelrc and paste in: <span class="code-block">{"presets": ["@babel/preset-env", "@babel/preset-react"]}<span class="copy-button" onclick='copyText("{\"presets\": [\"@babel/preset-env\", \"@babel/preset-react\"]}")'>Copy</span></span></p>
+
+    <!-- Section: Set up webpack -->
+    <h2>Set up Webpack</h2>
+    <p>Install necessary packages: <span class="code-block">npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin<span class="copy-button" onclick="copyText('npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin')">Copy</span></span></p>
+    <p>Create webpack.config.js with the provided configuration.</p>
+
+    <!-- Section: Add Scripts -->
+    <h2>Add Scripts</h2>
+    <p>In package.json, add:<br><br>
+        <span class="code-block">"start": "webpack-dev-server --mode development --open",
+        "build": "webpack --mode production"<span class="copy-button" onclick='copyText("\"start\": \"webpack-dev-server --mode development --open\",\n\"build\": \"webpack --mode production\"")'>Copy</span></span>
+    </p>
+
+    <!-- Section: Set up for actually making things -->
+    <h2>Setup for Development</h2>
+    <p>Create a 'src' folder<br> and add index.html,<br>index.js, <br>style.css. <br><b>Create a 'public' folder as well.</b></p>
+
+    <!-- Section: In index.js -->
+    <h4>index.js</h4>
+    <p>Example content for index.js file.</p>
+    <p>add: <br class="break"><br>
+        <span class="code-block">
+        import React from 'react';<br class="break"><br>
+        import ReactDOM from 'react-dom';<br class="break"><br>
+        import "./style.css";<br class="break"><br>
+        // Define a simple React component<br class="break"><br>
+        const App = () => {<br class="break"><br>
+            return &lth1>This is a test&lt/h1>;<br class="break"><br>
+        };<br class="break"><br>
+        // Render the App component into a div with the id of 'root'<br class="break"><br>
+        ReactDOM.render(&ltApp />, document.getElementById('root'));<br class="break">
+        </span>
+        <br>
+        <span class="code-block">Code: <span class="copy-button" onclick='copyText("import React from \"react\";\nimport ReactDOM from \"react-dom\";\n\nimport \"./style.css\";\n\nconst App = () => {\n\treturn <h1>This is a test</h1>;\n};\n\nReactDOM.render(<App />, document.getElementById(\"root\"));")'>Copy</span></span>
+    </p>
+
+    <!-- Section: In index.html -->
+    <h4>index.html</h4>
+    <p>Example HTML structure for your React app.</p>
+    <p>add: <br><br>
+        <span class="code-block">
+            &lt!DOCTYPE html><br><br>
+            &lthtml lang="en"><br><br>
+                &lthead><br><br>
+                    &ltmeta charset="UTF-8"><br><br>
+                    &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"><br><br>
+                    &lttitle>React App&lt/title><br><br>
+                &lt/head><br><br>
+            &ltbody><br><br>
+                &ltdiv id="root">&lt/div><br><br>
+            &lt/body><br><br>
+            &lt/html>
+        </span>
+        <br><br>
+        <span class="code-block">Code: <span class="copy-button" onclick='copyText("<!DOCTYPE html>\n<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"UTF-8\">\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n\t\t<title>React App</title>\n\t</head>\n<body>\n\t<div id=\"root\"></div>\n</body>\n</html>")'>Copy</span></span>
+    </p>
+
+    <!-- Section: Style.css -->
+    <h2>Style.css</h2>
+    <p>Add desired CSS styles here.</p>
+
+    <!-- Section: To test -->
+    <h2>To Test</h2>
+    <p>Run <span class="code-block">npm run start<span class="copy-button" onclick="copyText('npm run start')">Copy</span></span> to launch the development server.</p>
+
+    <!-- Section: To build -->
+    <h2>To Build</h2>
+    <p>Run <span class="code-block">npm run build<span class="copy-button" onclick="copyText('npm run build')">Copy</span></span> to build the project.</p>
+
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert("copied");
+            }, function(err) {
+                
+            });
+        }
+    </script>
+</body>
+</html>
