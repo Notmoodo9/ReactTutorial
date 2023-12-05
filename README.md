@@ -122,7 +122,7 @@ Tutorial to make a react application
 	
 # to test 
 	to test the code run: 
-	npm run start
+	npm start
 	It will launch a dev test and if you want to have it update just do ctrl S on the file and it will auto update
 	
 # to build
