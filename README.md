@@ -147,3 +147,15 @@ Tutorial to make a react application
 	It will output to a a folder called dist 
 	With that output you need to set up a node.js server 
 
+ # Make the load on the server LESS
+ 	You can have bigger modules loaded from the internet instead of the site it can make load times quicker and reduce server load
+  	In the index.html head tag add the scripts you want to preload for example here I'm loading react-dom
+	<script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  	<script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+	In webpack.config.js add 
+	externals: {
+	        'react': 'React',
+        	'react-dom': 'ReactDOM'
+    	},
+     	again ^ this isnt what your adding unless it is but it is an example
+
