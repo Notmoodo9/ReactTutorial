@@ -19,7 +19,7 @@ Tutorial to make a react application
 
 # Set up webpack
     Install all necessary packages run 
-    npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin
+    npm install --save-dev webpack webpack-cli webpack-dev-server style-loader css-loader babel-loader html-webpack-plugin mini-css-extract-plugin npm install terser-webpack-plugin css-minimizer-webpack-plugin compression-webpack-plugin 
     Create a file called webpack.config.js in the root
     Set the name changing the name const (Good for output makes it better) 
 
@@ -54,17 +54,10 @@ Tutorial to make a react application
     		{
       		test: /\.(js|jsx)$/,
       		exclude: /node_modules/,
-      		use: [
-        	{
-          		loader: 'thread-loader',
-          		options: {
-            			workers: os.cpus().length - 1,
-          		},
-        	},
+      		use: 
         	{
           		loader: 'babel-loader',
         	}
-      	],
     	},
     	{
       		test: /\.css$/,
