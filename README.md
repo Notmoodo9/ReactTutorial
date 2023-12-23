@@ -24,54 +24,77 @@ Tutorial to make a react application
     Set the name changing the name const (Good for output makes it better) 
 
    # Code
-    const HtmlWebpackPlugin = require('html-webpack-plugin');
-    const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-    const path = require("path"); 
+	const HtmlWebpackPlugin = require('html-webpack-plugin');
+	const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+	const TerserPlugin = require('terser-webpack-plugin');
+	const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+	const CompressionPlugin = require('compression-webpack-plugin');
+	const path = require("path"); 
+	const os = require('os');
 
-    const name = "Project_Name";
+	const name = "Student";
 
-    module.exports = {
-      output: {
-        path: path.resolve(__dirname, 'dist'), 
-        filename: `${name}.js`,
-      },
-      devServer: {
-    	static: {
-          directory: path.join(__dirname, 'public'), // Where static files are located
-        },
-        compress: true,
-        port: 3000, // Or any port of your choice
-        open: true,
-        hot: true, // Enable Hot Module Replacement
-        historyApiFallback: true, // For single-page applications
-      },
-      module: {
-        rules: [
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader'
-          }
-        },
-        {
-          test: /\.css$/,
-          use: [MiniCssExtractPlugin.loader, 'css-loader']
-        }]
-      },
-      plugins: [
-        new HtmlWebpackPlugin({
-          template: './src/index.html',
-          filename: 'index.html'
-        }),
-        new MiniCssExtractPlugin({
-          filename: `${name}.css` // Custom CSS filename
-        })
-      ],
-      resolve: {
-        extensions: ['.js', '.jsx']
-      }
-    };
+	module.exports = {
+  	output: {
+    	  	path: path.resolve(__dirname, 'dist'), 
+    		filename: `static/js/${name}.js`,
+  	},
+  	devServer: {
+		static: {
+      			directory: path.join(__dirname, 'public'), // Where static files are located
+    		},
+    		compress: true,
+    		port: 3000, // Or any port of your choice
+    		open: true,
+    		hot: true, // Enable Hot Module Replacement
+    		historyApiFallback: true, // For single-page applications
+  	},
+  	module: {
+    		rules: [
+    		{
+      		test: /\.(js|jsx)$/,
+      		exclude: /node_modules/,
+      		use: [
+        	{
+          		loader: 'thread-loader',
+          		options: {
+            			workers: os.cpus().length - 1,
+          		},
+        	},
+        	{
+          		loader: 'babel-loader',
+        	}
+      	],
+    	},
+    	{
+      		test: /\.css$/,
+      		use: [MiniCssExtractPlugin.loader, 'css-loader']
+    	}]
+  	},
+  	optimization: {
+    		minimize: true, // Enable minimization
+    		minimizer: [
+      		new TerserPlugin(), // Minify JavaScript
+      		new CssMinimizerPlugin() // Minify CSS
+    		],
+  	},
+  	plugins: [
+    		new HtmlWebpackPlugin({
+      			template: './public/index.html',
+      			filename: `index.html`
+    		}),
+    		new MiniCssExtractPlugin({
+     			filename: `static/css/${name}.css` // Custom CSS filename
+    		}),
+    		new CompressionPlugin({
+     			test: /\.(js|css|html)$/,
+      			algorithm: 'gzip', // You can also try 'brotliCompress' for Brotli
+    		}),
+  	],
+  	resolve: {
+    		extensions: ['.js', '.jsx']
+  		}
+	};
 
 # Add Scripts that give your app functionality 
 	Find the package.json file and in the scripts area add
